@@ -70,4 +70,10 @@ class UnitsTest extends TestCase
         $this->assertIsNumeric($car->year);
     }
 
+    public function testCarMakeTest()
+    {
+        $car = car::all()->random(1)[0];
+        $make = ['Honda','Toyota','Ford'];
+        $this->assertContains($car->make, $make);
+    }
 }
