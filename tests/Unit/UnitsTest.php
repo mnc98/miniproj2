@@ -21,4 +21,10 @@ class UnitsTest extends TestCase
         $user->name='Steve Smith';
         $this->assertTrue($user->save());
     }
+
+    public function testUserDeleteTest()
+    {
+        $user = User::find(mt_rand(1,50));
+        $this->assertTrue($user->delete());
+    }
 }
