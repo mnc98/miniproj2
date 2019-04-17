@@ -31,4 +31,13 @@ class FeatureTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function testContactAboutTest()
+    {
+        $user = User::all()->random(1)[0];
+
+        $response = $this->actingAs($user)->get('/contact');
+
+        $response->assertStatus(200);
+    }
+
 }
