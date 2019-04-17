@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\car;
 
 class UnitsTest extends TestCase
 {
@@ -34,7 +35,11 @@ class UnitsTest extends TestCase
         $userCount = 50;
         $count = $user->count();
         $this->assertEquals($userCount,$count);
+    }
 
-
+    public function testCarInsertTest()
+    {
+        $car = factory(Car::class)->create();
+        $this->assertDatabaseHas('cars', ['make' =>$car->make]);
     }
 }
