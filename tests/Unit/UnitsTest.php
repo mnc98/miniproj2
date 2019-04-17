@@ -46,7 +46,7 @@ class UnitsTest extends TestCase
     public function testYearUpdateTest()
     {
         $car = car::all()->random(1)[0];
-        $car->year='2000';
+        $car->year = 2000;
         $this->assertTrue($car->save());
     }
 
@@ -63,4 +63,11 @@ class UnitsTest extends TestCase
         $count = $car->count();
         $this->assertEquals($carCount,$count);
     }
+
+    public function testCarYearIntTest()
+    {
+        $car = car::all()->random(1)[0];
+        $this->assertIsNumeric($car->year);
+    }
+
 }

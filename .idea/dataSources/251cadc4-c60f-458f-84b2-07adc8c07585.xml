@@ -31,7 +31,7 @@
     </column>
     <column id="14" parent="6" name="year">
       <Position>3</Position>
-      <DataType>varchar(4)|0s</DataType>
+      <DataType>INT|0s</DataType>
     </column>
     <column id="15" parent="6" name="updated_at">
       <Position>4</Position>
