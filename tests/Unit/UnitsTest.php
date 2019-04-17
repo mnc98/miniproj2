@@ -11,7 +11,14 @@ class UnitsTest extends TestCase
 
     public function testUserInsertTest()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->assertDatabaseHas('users', ['name' =>$user->name]);
+    }
+
+    public function testUserUpdateTest()
+    {
+        $user = User::find(3);
+        $user->name='Steve Smith';
+        $this->assertTrue($user->save());
     }
 }
