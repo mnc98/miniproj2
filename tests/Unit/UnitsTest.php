@@ -39,7 +39,7 @@ class UnitsTest extends TestCase
 
     public function testCarInsertTest()
     {
-        $car = factory(Car::class)->create();
+        $car = factory(car::class)->create();
         $this->assertDatabaseHas('cars', ['make' =>$car->make]);
     }
 
@@ -48,5 +48,11 @@ class UnitsTest extends TestCase
         $car = car::all()->random(1)[0];
         $car->year='2000';
         $this->assertTrue($car->save());
+    }
+
+    public function testCarDeleteTest()
+    {
+        $car = car::all()->random(1)[0];
+        $this->assertTrue($car->delete());
     }
 }
