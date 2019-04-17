@@ -18,14 +18,14 @@ class UnitsTest extends TestCase
 
     public function testUserUpdateTest()
     {
-        $user = User::find(3);
+        $user = User::all()->random(1)[0];
         $user->name='Steve Smith';
         $this->assertTrue($user->save());
     }
 
     public function testUserDeleteTest()
     {
-        $user = User::find(mt_rand(1,50));
+        $user = User::all()->random(1)[0];
         $this->assertTrue($user->delete());
     }
 
@@ -41,5 +41,12 @@ class UnitsTest extends TestCase
     {
         $car = factory(Car::class)->create();
         $this->assertDatabaseHas('cars', ['make' =>$car->make]);
+    }
+
+    public function testYearUpdateTest()
+    {
+        $car = car::all()->random(1)[0];
+        $car->year='2000';
+        $this->assertTrue($car->save());
     }
 }
