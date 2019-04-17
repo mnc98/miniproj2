@@ -76,4 +76,11 @@ class UnitsTest extends TestCase
         $make = ['Honda','Toyota','Ford'];
         $this->assertContains($car->make, $make);
     }
+
+    public function testCarStringTest()
+    {
+        $car = car::all()->random(1)[0];
+        $this->assertIsString($car->model);
+    }
+
 }
