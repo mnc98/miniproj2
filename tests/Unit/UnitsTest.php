@@ -55,4 +55,12 @@ class UnitsTest extends TestCase
         $car = car::all()->random(1)[0];
         $this->assertTrue($car->delete());
     }
+
+    public function testCarCountTest()
+    {
+        $car = User::all();
+        $carCount = 50;
+        $count = $car->count();
+        $this->assertEquals($carCount,$count);
+    }
 }
