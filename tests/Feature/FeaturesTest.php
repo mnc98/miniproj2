@@ -8,7 +8,6 @@ use \App\User;
 
 class FeatureTest extends TestCase
 {
-
     public function testReturnRegisterTest()
     {
         $response = $this->get('/register');
@@ -19,6 +18,15 @@ class FeatureTest extends TestCase
     public function testReturnLoginTest()
     {
         $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
+    public function testReturnAboutTest()
+    {
+        $user = User::all()->random(1)[0];
+
+        $response = $this->actingAs($user)->get('/about');
 
         $response->assertStatus(200);
     }
